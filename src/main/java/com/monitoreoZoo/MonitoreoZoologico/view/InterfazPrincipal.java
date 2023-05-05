@@ -2,13 +2,17 @@ package com.monitoreoZoo.MonitoreoZoologico.view;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+
+import org.springframework.stereotype.Component;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.util.ArrayList;
 
 import com.monitoreoZoo.MonitoreoZoologico.controller.ControladorInterfaz;
-import com.monitoreoZoo.MonitoreoZoologico.entity.*;
+import com.monitoreoZoo.MonitoreoZoologico.documentos.*;
 
+@Component
 public class InterfazPrincipal extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private ControladorInterfaz controlador;
@@ -66,11 +70,11 @@ public class InterfazPrincipal extends JFrame {
 	  }
 
 	  // Actualizar datos de la tabla
-	  public void actualizarTabla(ArrayList<Animal> listaAnimales) {
+	  public void actualizarTabla(ArrayList<Animales> listaAnimales) {
 	    DefaultTableModel modeloTabla = (DefaultTableModel) tablaAnimales.getModel();
 	    modeloTabla.setRowCount(0);
 	    // Agregar datos de los animales a la tabla
-	    for (Animal animal : ControladorInterfaz.listaAnimales) {
+	    for (Animales animal : ControladorInterfaz.listaAnimales) {
 	      modeloTabla.addRow(
 	          new Object[] { animal.getTipoAnimal(), animal.getEspecie(), animal.getNombre(), animal.getEdadAnios(),
 	              animal.getSexo(), animal.getSalud() });
