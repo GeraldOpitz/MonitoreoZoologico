@@ -1,4 +1,4 @@
-package com.monitoreoZoo.MonitoreoZoologico.documentos;
+/*package com.monitoreoZoo.MonitoreoZoologico.documentos;
 
 public class AnimalTerrestre extends Animales {
 
@@ -6,3 +6,4 @@ public class AnimalTerrestre extends Animales {
         super(id, tipoAnimal, especie, nombre, edadAnios, sexo, salud); 
       }
 }
+*/

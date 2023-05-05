@@ -26,20 +26,17 @@ import com.monitoreoZoo.MonitoreoZoologico.view.*;
 
 @RestController
 @RequestMapping("/Animales")
-public class ControladorInterfaz implements ActionListener {
+public class ControladorInterfaz //implements ActionListener 
+{
 
-	private InterfazPrincipal vista;
-	public static ArrayList<Animales> listaAnimales = new ArrayList<>();
-	public static ArrayList<Animales> listaAnimalesTerrestres = new ArrayList<>();
-	public static ArrayList<Animales> listaAnimalesMarinos = new ArrayList<>();
-	public static ArrayList<Animales> listaAnimalesAereos = new ArrayList<>();
+	//private InterfazPrincipal vista;
 
-	public ControladorInterfaz(InterfazPrincipal vista) {
-		this.vista = vista;
-		ControladorInterfaz.listaAnimales = new ArrayList<>();
-	}
+	//public ControladorInterfaz(InterfazPrincipal vista) {
+	//	this.vista = vista;
+	//}
 
-	@Override
+	/*
+	 * @Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == vista.botonAgregarAnimal) {
 			// Creación del JDialog
@@ -212,21 +209,7 @@ public class ControladorInterfaz implements ActionListener {
 							salud);
 					AnimalAereo animalAereo = new AnimalAereo(id, tipoAnimal, especie, nombre, edadAnios, sexo, salud);
 
-					// Agregar animales a su lista correspondiente
-					listaAnimalesTerrestres.add(animalTerrestre);
-					listaAnimalesMarinos.add(animalMarino);
-					listaAnimalesAereos.add(animalAereo);
 
-					// Agregación de los objetos a la listaAnimales
-					if (tipoAnimal.equals("Terrestre")) {
-						ControladorInterfaz.listaAnimales.add(animalTerrestre);
-					} else if (tipoAnimal.equals("Marino")) {
-						ControladorInterfaz.listaAnimales.add(animalMarino);
-					} else if (tipoAnimal.equals("Aéreo")) {
-						ControladorInterfaz.listaAnimales.add(animalAereo);
-					}
-
-					vista.actualizarTabla(listaAnimales);
 					dialogoAgregar.dispose();
 				}
 			});
@@ -239,10 +222,11 @@ public class ControladorInterfaz implements ActionListener {
 			dialogoAgregar.add(panelPrincipal);
 			dialogoAgregar.setVisible(true);
 
-			vista.actualizarTabla(listaAnimales);
 		} else if (e.getSource() == vista.botonBorrarAnimal) {
 			JOptionPane.showMessageDialog(vista, "En construccion");
 		}
 	}
-
+	 * 
+	 */
+	
 }

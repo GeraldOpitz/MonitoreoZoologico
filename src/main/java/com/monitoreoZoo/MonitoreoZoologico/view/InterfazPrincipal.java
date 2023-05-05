@@ -13,11 +13,12 @@ import com.monitoreoZoo.MonitoreoZoologico.controller.ControladorInterfaz;
 import com.monitoreoZoo.MonitoreoZoologico.documentos.*;
 
 @Component
-public class InterfazPrincipal extends JFrame {
-	private static final long serialVersionUID = 1L;
-	private ControladorInterfaz controlador;
+public class InterfazPrincipal //extends JFrame 
+{
+	//private static final long serialVersionUID = 1L;
+	//private ControladorInterfaz controlador;
 	  
-	  public JButton botonAgregarAnimal;
+	 /* public JButton botonAgregarAnimal;
 	  public JButton botonBorrarAnimal;
 	  private static JTable tablaAnimales;
 
@@ -65,8 +66,8 @@ public class InterfazPrincipal extends JFrame {
 	    getContentPane().add(panelPrincipal, BorderLayout.NORTH);
 	    getContentPane().add(panelTabla, BorderLayout.CENTER);
 
-	    botonAgregarAnimal.addActionListener(controlador); 
-	    botonBorrarAnimal.addActionListener(controlador);
+	    //botonAgregarAnimal.addActionListener(controlador); 
+	    //botonBorrarAnimal.addActionListener(controlador);
 	  }
 
 	  // Actualizar datos de la tabla
@@ -74,11 +75,7 @@ public class InterfazPrincipal extends JFrame {
 	    DefaultTableModel modeloTabla = (DefaultTableModel) tablaAnimales.getModel();
 	    modeloTabla.setRowCount(0);
 	    // Agregar datos de los animales a la tabla
-	    for (Animales animal : ControladorInterfaz.listaAnimales) {
-	      modeloTabla.addRow(
-	          new Object[] { animal.getTipoAnimal(), animal.getEspecie(), animal.getNombre(), animal.getEdadAnios(),
-	              animal.getSexo(), animal.getSalud() });
-	    }
+
 	  }
 	  public static void main(String args[]) {
 	    InterfazPrincipal ventanaPrincipal = new InterfazPrincipal();
@@ -87,4 +84,5 @@ public class InterfazPrincipal extends JFrame {
 	    ventanaPrincipal.setLocationRelativeTo(null);
 	    ventanaPrincipal.setVisible(true);
 	  }
+	  */
 }

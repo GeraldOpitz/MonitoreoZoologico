@@ -3,8 +3,8 @@ package com.monitoreoZoo.MonitoreoZoologico.documentos;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Animal")
-public abstract class Animales {
+@Document(collection = "Animales")
+public class Animales {
 	// Definición de variables
 	@Id
 	protected int id;
@@ -27,10 +27,6 @@ public abstract class Animales {
 		this.salud = salud;
 	}
 	
-	public Animales() {
-		super();
-	}
-
 	public int getId() {
 		return id;
 	}
@@ -85,5 +81,13 @@ public abstract class Animales {
 
 	public void setSalud(String salud) {
 		this.salud = salud;
+	}
+
+	@Override
+	public String toString() {
+		return "Animales [id=" + id + ", tipoAnimal=" + tipoAnimal + ", especie=" + especie + ", nombre=" + nombre
+				+ ", edadAnios=" + edadAnios + ", sexo=" + sexo + ", salud=" + salud + "]";
 	}	
+	
+	
 }
