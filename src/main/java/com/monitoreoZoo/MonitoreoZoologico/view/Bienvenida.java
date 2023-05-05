@@ -4,15 +4,14 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
-public class Bienvenida //extends JFrame implements ActionListener 
-{
-	//private static final long serialVersionUID = 1L;
-	//private JButton botonAcceder;
-	//private JLabel label1;
-	//private InterfazPrincipal interfazPrincipal;
+public class Bienvenida extends JFrame implements ActionListener {
+	private static final long serialVersionUID = 1L;
+	private JButton botonAcceder;
+	private JLabel label1;
+	private InterfazPrincipal interfazPrincipal;
 
 	public Bienvenida() {
-		/*JPanel panel = new JPanel(new BorderLayout());
+		JPanel panel = new JPanel(new BorderLayout());
 
 		// Titulo de la ventana
 		setTitle("Bienvenida");
@@ -60,6 +59,5 @@ public class Bienvenida //extends JFrame implements ActionListener
 		ventanaBienvenida.setLocationRelativeTo(null);
 		ventanaBienvenida.setVisible(true);
 	}
-	*/
-	}
+
 }

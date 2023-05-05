@@ -1,4 +1,4 @@
-/*package com.monitoreoZoo.MonitoreoZoologico.documentos;
+package com.monitoreoZoo.MonitoreoZoologico.documentos;
 
 public class AnimalMarino extends Animales {
 
@@ -7,4 +7,3 @@ public class AnimalMarino extends Animales {
       }
 
 }
-*/

@@ -3,7 +3,6 @@ package com.monitoreoZoo.MonitoreoZoologico.controller;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.*;
-import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
@@ -21,22 +20,19 @@ import javax.swing.JTextField;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.monitoreoZoo.MonitoreoZoologico.documentos.*;
 import com.monitoreoZoo.MonitoreoZoologico.view.*;
 
 @RestController
 @RequestMapping("/Animales")
-public class ControladorInterfaz //implements ActionListener 
-{
+public class ControladorInterfaz implements ActionListener {
 
-	//private InterfazPrincipal vista;
+	private InterfazPrincipal vista;
 
-	//public ControladorInterfaz(InterfazPrincipal vista) {
-	//	this.vista = vista;
-	//}
+	public ControladorInterfaz(InterfazPrincipal vista) {
+		this.vista = vista;
+	}
 
-	/*
-	 * @Override
+	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == vista.botonAgregarAnimal) {
 			// Creación del JDialog
@@ -44,7 +40,7 @@ public class ControladorInterfaz //implements ActionListener
 			dialogoAgregar.setSize(400, 300);
 			dialogoAgregar.setLocationRelativeTo(null);
 
-			// Datos de anim
+			// Datos de animales
 			// Animales terrestres
 			String[] animalesTerrestres = { "León", "Tigre", "Jirafa", "Elefante", "Rinoceronte", "Cocodrilo",
 					"Hipopótamo", "Oso polar", "Panda", "Leopardo", "Lobo", "Zorro", "Mapache", "Jaguar", "Puma",
@@ -172,8 +168,7 @@ public class ControladorInterfaz //implements ActionListener
 			// Boton para agregar datos a la tabla
 			botonAgregar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					// Condicional para agregar el tipo de animal en base a lo que este seleccionado
-					// en los radiobuttons
+					// Condicional para agregar el tipo de animal en base a lo que este seleccionado en los radiobuttons
 					int id = 0;
 					String tipoAnimal = "";
 					if (radioTerrestre.isSelected()) {
@@ -202,14 +197,6 @@ public class ControladorInterfaz //implements ActionListener
 					String sexo = (String) comboBoxSexo.getSelectedItem();
 					String salud = textAreaSalud.getText();
 
-					// Creación de objetos de tipos de animales
-					AnimalTerrestre animalTerrestre = new AnimalTerrestre(id, tipoAnimal, especie, nombre, edadAnios,
-							sexo, salud);
-					AnimalMarino animalMarino = new AnimalMarino(id, tipoAnimal, especie, nombre, edadAnios, sexo,
-							salud);
-					AnimalAereo animalAereo = new AnimalAereo(id, tipoAnimal, especie, nombre, edadAnios, sexo, salud);
-
-
 					dialogoAgregar.dispose();
 				}
 			});
@@ -226,7 +213,5 @@ public class ControladorInterfaz //implements ActionListener
 			JOptionPane.showMessageDialog(vista, "En construccion");
 		}
 	}
-	 * 
-	 */
-	
+
 }
