@@ -20,11 +20,13 @@ import com.monitoreoZoo.MonitoreoZoologico.repository.AnimalRepository;
 
 @RestController
 @RequestMapping("/Animales")
-public class AnimalesController {
 
+public class AnimalesController {
+	
 	@Autowired
 	private AnimalRepository animalRepo;
-
+	
+	//Agregar animal
 	@PostMapping
 	public ResponseEntity<?> saveAnimal(@RequestBody Animales animal) {
 		try {
@@ -36,6 +38,7 @@ public class AnimalesController {
 		}
 	}
 	
+	//Buscar animal
 	@GetMapping
 	public ResponseEntity<?> findAllAnimales() {
 		try {
@@ -47,6 +50,7 @@ public class AnimalesController {
 		}
 	}
 	
+	//Actualizar animal
 	@PutMapping
 	public ResponseEntity<?> updateAnimal(@RequestBody Animales animal) {
 		try {
@@ -58,6 +62,7 @@ public class AnimalesController {
 		}
 	}
 	
+	//Eliminar animal
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<?> deleteAnimal(@PathVariable("id") Integer id) {
 		try {	

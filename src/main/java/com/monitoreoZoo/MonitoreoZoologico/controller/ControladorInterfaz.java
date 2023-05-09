@@ -20,7 +20,9 @@ import javax.swing.JTextField;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mongodb.client.MongoCollection;
 import com.monitoreoZoo.MonitoreoZoologico.view.*;
+import com.monitoreoZoo.MonitoreoZoologico.documentos.Animales;
 
 @RestController
 @RequestMapping("/Animales")
@@ -169,7 +171,6 @@ public class ControladorInterfaz implements ActionListener {
 			botonAgregar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					// Condicional para agregar el tipo de animal en base a lo que este seleccionado en los radiobuttons
-					int id = 0;
 					String tipoAnimal = "";
 					if (radioTerrestre.isSelected()) {
 						tipoAnimal = "Terrestre";
@@ -199,6 +200,7 @@ public class ControladorInterfaz implements ActionListener {
 
 					dialogoAgregar.dispose();
 				}
+				
 			});
 
 			// Contenedor principal
@@ -213,5 +215,7 @@ public class ControladorInterfaz implements ActionListener {
 			JOptionPane.showMessageDialog(vista, "En construccion");
 		}
 	}
+
+
 
 }

@@ -25,7 +25,7 @@ public class InterfazPrincipal extends JFrame {
 	    controlador = new ControladorInterfaz(this);
 
 	    // Titulo de la ventana
-	    setTitle("Sistema de inventario de zoologico");
+	    setTitle("Sistema de monitoreo de zoologico");
 
 	    // Icono que se muestra en la parte superior del programa
 	    setIconImage(new ImageIcon(getClass().getClassLoader().getResource("images/icono.png")).getImage());
@@ -35,7 +35,7 @@ public class InterfazPrincipal extends JFrame {
 	    JPanel panelBienvenida = new JPanel();
 	    JPanel panelTabla = new JPanel();
 	    panelPrincipal.add(panelBienvenida);
-	    JLabel etiquetaBienvenida = new JLabel("Inventario de Animales");
+	    JLabel etiquetaBienvenida = new JLabel("Gestionar Animales");
 	    panelBienvenida.add(etiquetaBienvenida);
 
 	    // Creación de los botones
