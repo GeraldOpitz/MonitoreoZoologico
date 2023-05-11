@@ -23,7 +23,7 @@ const Index = () => {
     <div>
       <h1>Agregar nuevo animal:</h1>
       <Formulario />
-      <h1>Lista de animales</h1>
+      <h1>Lista de animales:</h1>
       <TablaAnimales animales={animales}/>
     </div>
   );

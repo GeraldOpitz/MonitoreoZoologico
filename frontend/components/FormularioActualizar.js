@@ -6,8 +6,8 @@ const FormularioActualizar = ({ animal, setAnimalActualizar }) => {
   const [tipoSeleccionado, setTipoSeleccionado] = useState(animal.tipoAnimal.toLowerCase());
   const [nombre, setNombre] = useState(animal.nombre);
   const [edadAnios, setEdadAnios] = useState(animal.edadAnios);
-  const [edadMeses, setEdadMeses] = useState('');
-  const [edadDias, setEdadDias] = useState('');
+  const [edadMeses, setEdadMeses] = useState(animal.edadMeses);
+  const [edadDias, setEdadDias] = useState(animal.edadDias);
   const [sexo, setSexo] = useState(animal.sexo);
   const [salud, setSalud] = useState(animal.salud);
   const [especieSeleccionada, setEspecieSeleccionada] = useState(animal.especie);
@@ -20,13 +20,18 @@ const FormularioActualizar = ({ animal, setAnimalActualizar }) => {
       aéreo: ["Águila", "Pato", "Pingüino", "Buitre", "Halcón", "Lechuza", "Loro", "Cóndor", "Gaviota", "Pelícano", "Albatros", "Avestruz", "Cisne", "Colibrí", "Flamenco", "Pavo real", "Cigüeña", "Ganso"]
     };
     setEspecies(especiesPorTipo[tipoSeleccionado]);
-    setEspecieSeleccionada(animal.especie);
+    if (!especiesPorTipo[tipoSeleccionado].includes(animal.especie)) {
+      setEspecieSeleccionada(especiesPorTipo[tipoSeleccionado][0]);
+    } else {
+      setEspecieSeleccionada(animal.especie);
+    }
   }, [tipoSeleccionado]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!sexo) {
-      alert('Por favor seleccione una opción para el campo sexo.');
+
+    if (nombre.trim() === "") {
+      alert("Por favor, ingrese un nombre para el animal.");
       return;
     }
 
@@ -101,6 +106,37 @@ const FormularioActualizar = ({ animal, setAnimalActualizar }) => {
   return (
     <form onSubmit={handleSubmit} className="formulario">
       <div className="grupo">
+        <h1>Datos a cambiar:</h1>
+        <table>
+          <tbody>
+            <tr>
+              <td>Tipo de animal:</td>
+              <td>{animal.tipoAnimal}</td>
+            </tr>
+            <tr>
+              <td>Especie:</td>
+              <td>{animal.especie}</td>
+            </tr>
+            <tr>
+              <td>Nombre:</td>
+              <td>{animal.nombre}</td>
+            </tr>
+            <tr>
+              <td>Edad:</td>
+              <td>{animal.edadAnios} años, {animal.edadMeses} meses, {animal.edadDias} días</td>
+            </tr>
+            <tr>
+              <td>Sexo:</td>
+              <td>{animal.sexo}</td>
+            </tr>
+            <tr>
+              <td>Salud:</td>
+              <td>{animal.salud}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div className="grupo">
         <label>
           Tipo de animal:
           <div className="opciones">
@@ -169,8 +205,8 @@ const FormularioActualizar = ({ animal, setAnimalActualizar }) => {
         </label>
       </div>
       <div className="botones">
-      <button type="submit">Actualizar</button>
-      <button type="button" onClick={handleCancelar}>Cancelar</button>
+        <button type="submit">Actualizar</button>
+        <button type="button" onClick={handleCancelar}>Cancelar</button>
       </div>
     </form>
   );

@@ -35,6 +35,7 @@ const Formulario = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     if (nombre.trim() === "") {
       alert("Por favor, ingrese un nombre para el animal.");
       return;
