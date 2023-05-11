@@ -16,10 +16,10 @@ const TablaAnimales = () => {
     getAnimales();
   }, [animales]);
 
-  const handleBorrarAnimal = async (animalId) => {
+  const handleBorrarAnimal = async (id) => {
     try {
-      await axios.delete('http://localhost:8080/api/animales/${animalId}');
-      setAnimales(animales.filter((animal) => animal.id !== animalId));
+      await axios.delete(`http://localhost:8080/api/animales/${id}`);
+      setAnimales(animales.filter((animal) => animal.id !== id));
     } catch (error) {
       console.log(error);
     }
