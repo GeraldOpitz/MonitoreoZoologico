@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import FormularioActualizar from './FormularioActualizar';
+import "@/styles/TablaEstilo.css";
 
 const TablaAnimales = () => {
   const [animales, setAnimales] = useState([]);
@@ -37,13 +38,15 @@ const TablaAnimales = () => {
 
   return (
     <>
-      <table>
+      <table className="tabla">
         <thead>
           <tr>
-            <th>Tipo de animal</th>
+            <th>Tipo</th>
             <th>Especie</th>
             <th>Nombre</th>
-            <th>Edad en años</th>
+            <th>Años</th>
+            <th>Meses</th>
+            <th>Dias</th>
             <th>Sexo</th>
             <th>Salud</th>
             <th>Borrar</th>
@@ -57,6 +60,8 @@ const TablaAnimales = () => {
               <td>{animal.especie}</td>
               <td>{animal.nombre}</td>
               <td>{animal.edadAnios}</td>
+              <td>{animal.edadMeses}</td>
+              <td>{animal.edadDias}</td>
               <td>{animal.sexo}</td>
               <td>{animal.salud}</td>
               <td>

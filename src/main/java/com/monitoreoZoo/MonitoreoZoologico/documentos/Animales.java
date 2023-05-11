@@ -12,6 +12,8 @@ public class Animales {
     private String especie;
     private String nombre;
     private int edadAnios;
+    private int edadMeses;
+    private int edadDias;
     private String sexo;
     private String salud;
 
@@ -19,12 +21,14 @@ public class Animales {
 
     public Animales() {}
 
-    public Animales(int id, String tipoAnimal, String especie, String nombre, int edadAnios, String sexo, String salud) {
+    public Animales(int id, String tipoAnimal, String especie, String nombre, int edadAnios, int edadMeses, int edadDias, String sexo, String salud) {
         this.id = id;
         this.tipoAnimal = tipoAnimal;
         this.especie = especie;
         this.nombre = nombre;
         this.edadAnios = edadAnios;
+        this.edadMeses = edadMeses;
+        this.edadDias = edadDias;
         this.sexo = sexo;
         this.salud = salud;
     }
@@ -67,6 +71,22 @@ public class Animales {
 
     public void setEdadAnios(int edadAnios) {
         this.edadAnios = edadAnios;
+    }
+
+    public int getEdadMeses() {
+        return edadMeses;
+    }
+
+    public void setEdadMeses(int edadMeses) {
+        this.edadMeses = edadMeses;
+    }
+
+    public int getEdadDias() {
+        return edadDias;
+    }
+
+    public void setEdadDias(int edadDias) {
+        this.edadDias = edadDias;
     }
 
     public String getSexo() {

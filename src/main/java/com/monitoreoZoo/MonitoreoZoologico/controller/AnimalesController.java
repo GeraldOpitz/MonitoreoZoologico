@@ -71,6 +71,8 @@ public class AnimalesController {
                 animalToUpdate.setEspecie(animal.getEspecie());
 				animalToUpdate.setNombre(animal.getNombre());
                 animalToUpdate.setEdadAnios(animal.getEdadAnios());
+                animalToUpdate.setEdadMeses(animal.getEdadMeses());
+                animalToUpdate.setEdadDias(animal.getEdadDias());
 				animalToUpdate.setSexo(animal.getSexo());
 				animalToUpdate.setSalud(animal.getSalud());
                 animalRepo.save(animalToUpdate);

@@ -2,7 +2,7 @@ package com.monitoreoZoo.MonitoreoZoologico.documentos;
 
 public class AnimalTerrestre extends Animales {
 
-  public AnimalTerrestre(int id, String tipoAnimal, String especie, String nombre, int edadAnios, String sexo, String salud) {
-    super(id, tipoAnimal, especie, nombre, edadAnios, sexo, salud); 
+  public AnimalTerrestre(int id, String tipoAnimal, String especie, String nombre, int edadAnios, int edadMeses, int edadDias, String sexo, String salud) {
+    super(id, tipoAnimal, especie, nombre, edadAnios, edadMeses, edadDias, sexo, salud); 
   }
 }
