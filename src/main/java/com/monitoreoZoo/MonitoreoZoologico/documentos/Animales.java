@@ -1,93 +1,89 @@
 package com.monitoreoZoo.MonitoreoZoologico.documentos;
 
+
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Animales")
 public class Animales {
 	// Definición de variables
-	@Id
-	protected int id;
-	protected String tipoAnimal;
-	protected String especie;
-	protected String nombre;
-	protected int edadAnios;
-	protected String sexo;
-	protected String salud;
+    @Id
+    private ObjectId _id;
+    private String tipoAnimal;
+    private String especie;
+    private String nombre;
+    private int edadAnios;
+    private String sexo;
+    private String salud;
 
-	// constructor del objeto
-	public Animales(int id, String tipoAnimal, String especie, String nombre, int edadAnios, String sexo, String salud) {
-		super();
-		this.id = id;
-		this.tipoAnimal = tipoAnimal;
-		this.especie = especie;
-		this.nombre = nombre;
-		this.edadAnios = edadAnios;
-		this.sexo = sexo;
-		this.salud = salud;
-	}
-	
-	public int getId() {
-		return id;
-	}
+    //Constructor, getters y setters
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Animales() {}
 
-	public String getTipoAnimal() {
-		return tipoAnimal;
-	}
+    public Animales(ObjectId _id, String tipoAnimal, String especie, String nombre, int edadAnios, String sexo, String salud) {
+        this._id = _id;
+        this.tipoAnimal = tipoAnimal;
+        this.especie = especie;
+        this.nombre = nombre;
+        this.edadAnios = edadAnios;
+        this.sexo = sexo;
+        this.salud = salud;
+    }
 
-	public void setTipoAnimal(String tipoAnimal) {
-		this.tipoAnimal = tipoAnimal;
-	}
+    public ObjectId get_id() {
+        return _id;
+    }
 
-	public String getEspecie() {
-		return especie;
-	}
+    public void set_id(ObjectId _id) {
+        this._id = _id;
+    }
 
-	public void setEspecie(String especie) {
-		this.especie = especie;
-	}
+    public String getTipoAnimal() {
+        return tipoAnimal;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public void setTipoAnimal(String tipoAnimal) {
+        this.tipoAnimal = tipoAnimal;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public String getEspecie() {
+        return especie;
+    }
 
-	public int getEdadAnios() {
-		return edadAnios;
-	}
+    public void setEspecie(String especie) {
+        this.especie = especie;
+    }
 
-	public void setEdadAnios(int edadAnios) {
-		this.edadAnios = edadAnios;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public String getSexo() {
-		return sexo;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
+    public int getEdadAnios() {
+        return edadAnios;
+    }
 
-	public String getSalud() {
-		return salud;
-	}
+    public void setEdadAnios(int edadAnios) {
+        this.edadAnios = edadAnios;
+    }
 
-	public void setSalud(String salud) {
-		this.salud = salud;
-	}
+    public String getSexo() {
+        return sexo;
+    }
 
-	@Override
-	public String toString() {
-		return "Animales [id=" + id + ", tipoAnimal=" + tipoAnimal + ", especie=" + especie + ", nombre=" + nombre
-				+ ", edadAnios=" + edadAnios + ", sexo=" + sexo + ", salud=" + salud + "]";
-	}	
-	
-	
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getSalud() {
+        return salud;
+    }
+
+    public void setSalud(String salud) {
+        this.salud = salud;
+    }
 }
