@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const FormularioActualizar = ({ animal, actualizarAnimales }) => {
+const FormularioActualizar = ({ animal, setAnimalActualizar }) => {
   const [tipoAnimal, setTipoAnimal] = useState(animal.tipoAnimal);
   const [especie, setEspecie] = useState(animal.especie);
   const [nombre, setNombre] = useState(animal.nombre);
@@ -12,21 +12,18 @@ const FormularioActualizar = ({ animal, actualizarAnimales }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(`http://localhost:8080/api/animales/${animal.id}`, {
-        tipoAnimal,
-        especie,
-        nombre,
-        edadAnios,
-        sexo,
-        salud,
-      });
-      console.log(response.data);
-      actualizarAnimales();
+      const updatedAnimal = { tipoAnimal, especie, nombre, edadAnios, sexo, salud };
+      await axios.put(`http://localhost:8080/api/animales/${animal.id}`, updatedAnimal);
+      setAnimalActualizar(null);
     } catch (error) {
       console.log(error);
     }
   };
 
+  const handleCancelar = () => {
+    setAnimalActualizar(null);
+  };
+  
   return (
     <form onSubmit={handleSubmit}>
       <label>
@@ -54,6 +51,7 @@ const FormularioActualizar = ({ animal, actualizarAnimales }) => {
         <input type="text" value={salud} onChange={(e) => setSalud(e.target.value)} />
       </label>
       <button type="submit">Actualizar</button>
+      <button type="button" onClick={handleCancelar}>Cancelar</button>
     </form>
   );
 };

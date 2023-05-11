@@ -31,6 +31,10 @@ const TablaAnimales = () => {
     setAnimalActualizar(animal);
   };
 
+  const handleCancelarActualizarAnimal = () => {
+    setAnimalActualizar(null);
+  };
+
   return (
     <>
       <table>
@@ -66,7 +70,11 @@ const TablaAnimales = () => {
         </tbody>
       </table>
       {animalActualizar && (
-        <FormularioActualizar animal={animalActualizar} setAnimalActualizar={setAnimalActualizar} />
+        <FormularioActualizar
+         animal={animalActualizar} 
+         setAnimalActualizar={setAnimalActualizar}
+         handleCancelarActualizarAnimal={handleCancelarActualizarAnimal}
+         />
       )}
     </>
   );
