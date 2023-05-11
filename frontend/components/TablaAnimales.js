@@ -16,6 +16,15 @@ const TablaAnimales = () => {
     getAnimales();
   }, [animales]);
 
+  const handleBorrarAnimal = async (animalId) => {
+    try {
+      await axios.delete('http://localhost:8080/api/animales/${animalId}');
+      setAnimales(animales.filter((animal) => animal.id !== animalId));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <table>
       <thead>
@@ -26,17 +35,25 @@ const TablaAnimales = () => {
           <th>Edad en años</th>
           <th>Sexo</th>
           <th>Salud</th>
+          <th>Borrar</th>
+          <th>Actualizar</th>
         </tr>
       </thead>
       <tbody>
-        {animales.map((animal, index) => (
-          <tr key={index}>
+        {animales.map((animal) => (
+          <tr key={animal.id}>
             <td>{animal.tipoAnimal}</td>
             <td>{animal.especie}</td>
             <td>{animal.nombre}</td>
             <td>{animal.edadAnios}</td>
             <td>{animal.sexo}</td>
             <td>{animal.salud}</td>
+            <td>
+              <button onClick={() => handleBorrarAnimal(animal.id)}>Borrar</button>
+            </td>
+            <td>
+              <button onClick={() => {}}>Actualizar</button>
+            </td>
           </tr>
         ))}
       </tbody>

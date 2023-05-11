@@ -16,6 +16,8 @@ const Index = () => {
     }
   };
   
+
+  
   getAnimales();
 }, []);
   

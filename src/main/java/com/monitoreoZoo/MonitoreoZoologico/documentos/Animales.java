@@ -1,7 +1,5 @@
 package com.monitoreoZoo.MonitoreoZoologico.documentos;
 
-
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Animales {
 	// Definición de variables
     @Id
-    private ObjectId _id;
+    private int id;
     private String tipoAnimal;
     private String especie;
     private String nombre;
@@ -21,8 +19,8 @@ public class Animales {
 
     public Animales() {}
 
-    public Animales(ObjectId _id, String tipoAnimal, String especie, String nombre, int edadAnios, String sexo, String salud) {
-        this._id = _id;
+    public Animales(int id, String tipoAnimal, String especie, String nombre, int edadAnios, String sexo, String salud) {
+        this.id = id;
         this.tipoAnimal = tipoAnimal;
         this.especie = especie;
         this.nombre = nombre;
@@ -31,12 +29,12 @@ public class Animales {
         this.salud = salud;
     }
 
-    public ObjectId get_id() {
-        return _id;
+    public int getId() {
+        return id;
     }
 
-    public void set_id(ObjectId _id) {
-        this._id = _id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTipoAnimal() {

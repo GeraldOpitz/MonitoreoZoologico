@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Formulario = () => {
@@ -8,11 +8,20 @@ const Formulario = () => {
   const [edadAnios, setEdadAnios] = useState('');
   const [sexo, setSexo] = useState('');
   const [salud, setSalud] = useState('');
+  const [contador, setContador] = useState(0);
+
+  useEffect(() => {
+    const id = localStorage.getItem('id');
+    if (id) {
+      setContador(parseInt(id));
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:8080/api/animales', {
+        id: contador,
         tipoAnimal,
         especie,
         nombre,
@@ -21,6 +30,8 @@ const Formulario = () => {
         salud,
       });
       console.log(response.data);
+      setContador((prev) => prev + 1);
+      localStorage.setItem('id', contador + 1);
     } catch (error) {
       console.log(error);
     }
