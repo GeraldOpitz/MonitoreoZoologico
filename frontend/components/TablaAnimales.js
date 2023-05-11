@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import FormularioActualizar from './FormularioActualizar';
 
 const TablaAnimales = () => {
   const [animales, setAnimales] = useState([]);
+  const [animalActualizar, setAnimalActualizar] = useState(null);
 
   useEffect(() => {
     const getAnimales = async () => {
@@ -25,39 +27,48 @@ const TablaAnimales = () => {
     }
   };
 
+  const handleActualizarAnimales = (animal) => {
+    setAnimalActualizar(animal);
+  };
+
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Tipo de animal</th>
-          <th>Especie</th>
-          <th>Nombre</th>
-          <th>Edad en años</th>
-          <th>Sexo</th>
-          <th>Salud</th>
-          <th>Borrar</th>
-          <th>Actualizar</th>
-        </tr>
-      </thead>
-      <tbody>
-        {animales.map((animal) => (
-          <tr key={animal.id}>
-            <td>{animal.tipoAnimal}</td>
-            <td>{animal.especie}</td>
-            <td>{animal.nombre}</td>
-            <td>{animal.edadAnios}</td>
-            <td>{animal.sexo}</td>
-            <td>{animal.salud}</td>
-            <td>
-              <button onClick={() => handleBorrarAnimal(animal.id)}>Borrar</button>
-            </td>
-            <td>
-              <button onClick={() => {}}>Actualizar</button>
-            </td>
+    <>
+      <table>
+        <thead>
+          <tr>
+            <th>Tipo de animal</th>
+            <th>Especie</th>
+            <th>Nombre</th>
+            <th>Edad en años</th>
+            <th>Sexo</th>
+            <th>Salud</th>
+            <th>Borrar</th>
+            <th>Actualizar</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {animales.map((animal) => (
+            <tr key={animal.id}>
+              <td>{animal.tipoAnimal}</td>
+              <td>{animal.especie}</td>
+              <td>{animal.nombre}</td>
+              <td>{animal.edadAnios}</td>
+              <td>{animal.sexo}</td>
+              <td>{animal.salud}</td>
+              <td>
+                <button onClick={() => handleBorrarAnimal(animal.id)}>Borrar</button>
+              </td>
+              <td>
+                <button onClick={() => handleActualizarAnimales(animal)}>Actualizar</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {animalActualizar && (
+        <FormularioActualizar animal={animalActualizar} setAnimalActualizar={setAnimalActualizar} />
+      )}
+    </>
   );
 };
 
