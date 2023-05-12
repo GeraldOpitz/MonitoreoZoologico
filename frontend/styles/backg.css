@@ -1,0 +1,32 @@
+.page-container {
+  background-image: url('/images/sabana-patron.jpg');
+  background-size: auto 100%;
+  background-position: center;
+  min-height: 100vh;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.vh-100 {
+  height: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.fondo {
+  background-color: white;
+  padding: 20px;
+}

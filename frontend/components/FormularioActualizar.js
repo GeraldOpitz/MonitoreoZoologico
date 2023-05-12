@@ -80,6 +80,11 @@ const FormularioActualizar = ({ animal, setAnimalActualizar }) => {
       return;
     }
 
+    if (edadMeses == 12 && edadDias > 1) {
+      alert('Ingrese un día valido');
+      return;
+    }
+
     if (!sexo) {
       alert('Por favor seleccione una opción para el campo sexo.');
       return;
@@ -105,60 +110,75 @@ const FormularioActualizar = ({ animal, setAnimalActualizar }) => {
 
   return (
     <form onSubmit={handleSubmit} className="formulario">
-      <div className="grupo">
-        <h1>Datos a cambiar:</h1>
-        <table>
-          <tbody>
-            <tr>
-              <td>Tipo de animal:</td>
-              <td>{animal.tipoAnimal}</td>
-            </tr>
-            <tr>
-              <td>Especie:</td>
-              <td>{animal.especie}</td>
-            </tr>
-            <tr>
-              <td>Nombre:</td>
-              <td>{animal.nombre}</td>
-            </tr>
-            <tr>
-              <td>Edad:</td>
-              <td>{animal.edadAnios} años, {animal.edadMeses} meses, {animal.edadDias} días</td>
-            </tr>
-            <tr>
-              <td>Sexo:</td>
-              <td>{animal.sexo}</td>
-            </tr>
-            <tr>
-              <td>Salud:</td>
-              <td>{animal.salud}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <div className="card">
+              <div className="card-header">
+                <h1>Datos a cambiar:</h1>
+              </div>
+              <div className="card-body">
+                <div className="row">
+                  <div className="col-md-4">
+                    <p><strong>Tipo de animal:</strong></p>
+                    <p>{animal.tipoAnimal}</p>
+                  </div>
+                  <div className="col-md-4">
+                    <p><strong>Especie:</strong></p>
+                    <p>{animal.especie}</p>
+                  </div>
+                  <div className="col-md-4">
+                    <p><strong>Nombre:</strong></p>
+                    <p>{animal.nombre}</p>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-4">
+                    <p><strong>Edad:</strong></p>
+                    <p>{animal.edadAnios} años, {animal.edadMeses} meses, {animal.edadDias} días</p>
+                  </div>
+                  <div className="col-md-4">
+                    <p><strong>Sexo:</strong></p>
+                    <p>{animal.sexo}</p>
+                  </div>
+                  <div className="col-md-4">
+                    <p><strong>Salud:</strong></p>
+                    <p>{animal.salud}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="grupo">
+
+      <div className="form-group">
         <label>
           Tipo de animal:
-          <div className="opciones">
-            <label>
-              <input type="radio" name="tipoAnimal" value="terrestre" checked={tipoSeleccionado === 'terrestre'} onChange={() => setTipoSeleccionado('terrestre')} />
+          <div className="form-check">
+            <label className="form-check-label">
+              <input className="form-check-input" type="radio" name="tipoAnimal" value="terrestre" checked={tipoSeleccionado === 'terrestre'} onChange={() => setTipoSeleccionado('terrestre')} />
               Terrestre
             </label>
-            <label>
-              <input type="radio" name="tipoAnimal" value="marino" checked={tipoSeleccionado === 'marino'} onChange={() => setTipoSeleccionado('marino')} />
+          </div>
+          <div className="form-check">
+            <label className="form-check-label">
+              <input className="form-check-input" type="radio" name="tipoAnimal" value="marino" checked={tipoSeleccionado === 'marino'} onChange={() => setTipoSeleccionado('marino')} />
               Marino
             </label>
-            <label>
-              <input type="radio" name="tipoAnimal" value="aéreo" checked={tipoSeleccionado === 'aéreo'} onChange={() => setTipoSeleccionado('aéreo')} />
+          </div>
+          <div className="form-check">
+            <label className="form-check-label">
+              <input className="form-check-input" type="radio" name="tipoAnimal" value="aéreo" checked={tipoSeleccionado === 'aéreo'} onChange={() => setTipoSeleccionado('aéreo')} />
               Aéreo
             </label>
           </div>
         </label>
       </div>
-      <div className="grupo">
+      <div className="form-group">
         <label>
           Especie:
-          <select value={especieSeleccionada} onChange={(e) => setEspecieSeleccionada(e.target.value)}>
+          <select className="form-control" value={especieSeleccionada} onChange={(e) => setEspecieSeleccionada(e.target.value)}>
             {especies.map((especie) => (
               <option key={especie} value={especie}>
                 {especie}
@@ -167,46 +187,57 @@ const FormularioActualizar = ({ animal, setAnimalActualizar }) => {
           </select>
         </label>
       </div>
-      <div className="grupo">
+      <div className="form-group">
         <label>
           Nombre:
-          <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+          <input type="text" className="form-control" value={nombre} onChange={(e) => setNombre(e.target.value)} />
         </label>
       </div>
-      <div className="grupo">
+      <div className="form-group">
         <label>
           Edad:
-          <div className="edadInputs">
-            Años:
-            <input type="number" value={edadAnios} onChange={(e) => setEdadAnios(e.target.value)} />
-            Meses:
-            <input type="number" value={edadMeses} onChange={(e) => setEdadMeses(e.target.value)} />
-            Días:
-            <input type="number" value={edadDias} onChange={(e) => setEdadDias(e.target.value)} />
+          <div className="form-row">
+            <div className="col">
+              <input type="number" className="form-control" placeholder="Años" value={edadAnios} onChange={(e) => setEdadAnios(e.target.value)} />
+            </div>
+            <div className="col">
+              <input type="number" className="form-control" placeholder="Meses" value={edadMeses} onChange={(e) => setEdadMeses(e.target.value)} />
+            </div>
+            <div className="col">
+              <input type="number" className="form-control" placeholder="Días" value={edadDias} onChange={(e) => setEdadDias(e.target.value)} />
+            </div>
           </div>
         </label>
       </div>
-      <div className="grupo">
+      <div className="form-group">
         <label>
           Sexo:
-          <select value={sexo} onChange={(e) => setSexo(e.target.value)}>
+          <select className="form-control" value={sexo} onChange={(e) => setSexo(e.target.value)}>
             <option value="">Seleccionar</option>
             <option value="Macho">Macho</option>
             <option value="Hembra">Hembra</option>
           </select>
         </label>
       </div>
-      <div className="grupo">
+      <div className="form-group">
         <label>
           Salud:
           <div>
-            <textarea value={salud} onChange={(e) => setSalud(e.target.value)} />
+            <textarea className="form-control" value={salud} onChange={(e) => setSalud(e.target.value)} />
           </div>
         </label>
       </div>
-      <div className="botones">
-        <button type="submit">Actualizar</button>
-        <button type="button" onClick={handleCancelar}>Cancelar</button>
+      <div className="form-group">
+        <label>
+          <div className="form-row">
+          <div className="col"> 
+          <button type="submit" className="btn btn-primary">Actualizar</button>
+          </div>
+          <div className="col"> 
+          <button type="button" onClick={handleCancelar} className="btn btn-primary">Cancelar</button>
+          </div>
+          </div>
+        </label>
       </div>
     </form>
   );

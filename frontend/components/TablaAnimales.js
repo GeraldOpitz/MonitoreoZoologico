@@ -38,8 +38,8 @@ const TablaAnimales = () => {
 
   return (
     <>
-      <table className="tabla">
-        <thead>
+      <table className="table table-striped table-bordered">
+        <thead className="thead-dark">
           <tr>
             <th>Tipo</th>
             <th>Especie</th>
@@ -65,10 +65,10 @@ const TablaAnimales = () => {
               <td>{animal.sexo}</td>
               <td>{animal.salud}</td>
               <td>
-                <button onClick={() => handleBorrarAnimal(animal.id)}>Borrar</button>
+                <button onClick={() => handleBorrarAnimal(animal.id)} className="btn btn-primary">Borrar</button>
               </td>
               <td>
-                <button onClick={() => handleActualizarAnimales(animal)}>Actualizar</button>
+                <button onClick={() => handleActualizarAnimales(animal)} className="btn btn-primary">Actualizar</button>
               </td>
             </tr>
           ))}

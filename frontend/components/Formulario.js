@@ -35,7 +35,7 @@ const Formulario = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (nombre.trim() === "") {
       alert("Por favor, ingrese un nombre para el animal.");
       return;
@@ -86,6 +86,12 @@ const Formulario = () => {
       return;
     }
 
+    if (edadMeses == 12 && edadDias > 1){
+      alert('Ingrese un día valido');
+      return;
+    }
+
+
     if (!sexo) {
       alert('Por favor seleccione una opción para el campo sexo.');
       return;
@@ -126,77 +132,84 @@ const Formulario = () => {
   };
 
   return (
-<form onSubmit={handleSubmit} className="formulario">
-  <div className="grupo">
-    <label>
-      Tipo de animal:
-      <div className="opciones">
+    <form onSubmit={handleSubmit} className="formulario">
+      <div className="form-group">
         <label>
-          <input type="radio" name="tipoAnimal" value="terrestre" checked={tipoSeleccionado === 'terrestre'} onChange={() => setTipoSeleccionado('terrestre')} />
-          Terrestre
-        </label>
-        <label>
-          <input type="radio" name="tipoAnimal" value="marino" checked={tipoSeleccionado === 'marino'} onChange={() => setTipoSeleccionado('marino')} />
-          Marino
-        </label>
-        <label>
-          <input type="radio" name="tipoAnimal" value="aéreo" checked={tipoSeleccionado === 'aéreo'} onChange={() => setTipoSeleccionado('aéreo')} />
-          Aéreo
+          Tipo de animal:
+          <div className="form-check">
+            <label className="form-check-label">
+              <input className="form-check-input" type="radio" name="tipoAnimal" value="terrestre" checked={tipoSeleccionado === 'terrestre'} onChange={() => setTipoSeleccionado('terrestre')} />
+              Terrestre
+            </label>
+          </div>
+          <div className="form-check">
+            <label className="form-check-label">
+              <input className="form-check-input" type="radio" name="tipoAnimal" value="marino" checked={tipoSeleccionado === 'marino'} onChange={() => setTipoSeleccionado('marino')} />
+              Marino
+            </label>
+          </div>
+          <div className="form-check">
+            <label className="form-check-label">
+              <input className="form-check-input" type="radio" name="tipoAnimal" value="aéreo" checked={tipoSeleccionado === 'aéreo'} onChange={() => setTipoSeleccionado('aéreo')} />
+              Aéreo
+            </label>
+          </div>
         </label>
       </div>
-    </label>
-  </div>
-  <div className="grupo">
-    <label>
-      Especie:
-      <select value={especieSeleccionada} onChange={(e) => setEspecieSeleccionada(e.target.value)}>
-        {especies.map((especie) => (
-          <option key={especie} value={especie}>
-            {especie}
-          </option>
-        ))}
-      </select>
-    </label>
-  </div>
-  <div className="grupo">
-    <label>
-      Nombre:
-      <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-    </label>
-  </div>
-  <div className="grupo">
-    <label>
-      Edad:
-      <div className="edadInputs">
-        Años:
-        <input type="number" value={edadAnios} onChange={(e) => setEdadAnios(e.target.value)} />
-        Meses:
-        <input type="number" value={edadMeses} onChange={(e) => setEdadMeses(e.target.value)} />
-        Días:
-        <input type="number" value={edadDias} onChange={(e) => setEdadDias(e.target.value)} />
+      <div className="form-group">
+        <label>
+          Especie:
+          <select className="form-control" value={especieSeleccionada} onChange={(e) => setEspecieSeleccionada(e.target.value)}>
+            {especies.map((especie) => (
+              <option key={especie} value={especie}>
+                {especie}
+              </option>
+            ))}
+          </select>
+        </label>
       </div>
-    </label>
-  </div>
-  <div className="grupo">
-    <label>
-      Sexo:
-      <select value={sexo} onChange={(e) => setSexo(e.target.value)}>
-        <option value="">Seleccionar</option>
-        <option value="Macho">Macho</option>
-        <option value="Hembra">Hembra</option>
-      </select>
-    </label>
-  </div>
-  <div className="grupo">
-    <label>
-      Salud:
-      <div>
-      <textarea value={salud} onChange={(e) => setSalud(e.target.value)} />
+      <div className="form-group">
+        <label>
+          Nombre:
+          <input type="text" className="form-control" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+        </label>
       </div>
-    </label>
-  </div>
-  <button type="submit">Agregar</button>
-</form>
+      <div className="form-group">
+        <label>
+          Edad:
+          <div className="form-row">
+            <div className="col">
+              <input type="number" className="form-control" placeholder="Años" value={edadAnios} onChange={(e) => setEdadAnios(e.target.value)} />
+            </div>
+            <div className="col">
+              <input type="number" className="form-control" placeholder="Meses" value={edadMeses} onChange={(e) => setEdadMeses(e.target.value)} />
+            </div>
+            <div className="col">
+              <input type="number" className="form-control" placeholder="Días" value={edadDias} onChange={(e) => setEdadDias(e.target.value)} />
+            </div>
+          </div>
+        </label>
+      </div>
+      <div className="form-group">
+        <label>
+          Sexo:
+          <select className="form-control" value={sexo} onChange={(e) => setSexo(e.target.value)}>
+            <option value="">Seleccionar</option>
+            <option value="Macho">Macho</option>
+            <option value="Hembra">Hembra</option>
+          </select>
+        </label>
+      </div>
+      <div className="form-group">
+        <label>
+          Salud:
+          <div>
+            <textarea className="form-control" value={salud} onChange={(e) => setSalud(e.target.value)} />
+          </div>
+        </label>
+      </div>
+      <button type="submit" className="btn btn-primary">Guardar</button>
+    </form>
   );
 };
 
